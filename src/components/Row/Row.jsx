@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./Row.css";
 import instance from "../../axios";
+// import posterImg from "./../../images/poster.jpg";
 
 const base_url = 'https://image.tmdb.org/t/p/original/'
 
@@ -15,7 +16,7 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
         }
         fetchData()
     }, [fetchUrl])
-    console.table(movies)
+    console.log(movies)
     return (
         <div className="row">
             <h2>{title}</h2>
@@ -23,10 +24,11 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
                 {movies.map(movie => (
                     <img
                         key={movie.id}
-                        className="row__poster"
+                        className={`row__poster ${isLargeRow && "row__posterLarge"}`}
                         src={`${base_url}${isLargeRow 
                             ? movie.poster_path 
-                            : movie.backdrop_path}`}
+                            : movie.backdrop_path
+                        }`}
                         alt={movie.name}
                     />
                 ))}
