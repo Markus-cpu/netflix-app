@@ -8,6 +8,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /*animations*/
+    transition-timing-function: ease-in;
+    transition: all .5s;
 }
 .nav__black {
     background-color: #111111;
